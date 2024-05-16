@@ -23,7 +23,9 @@ class Cam:
     def photograph(self):
         if self.recording :
             print("Cant take a photo while recording")
-
+            return
+    def stopRecording(self):
+        self.recording = False
 
 canon = Cam("Canon")
 canon.record()
