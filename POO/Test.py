@@ -27,5 +27,8 @@ class Cam:
     def stopRecording(self):
         self.recording = False
 
+
 canon = Cam("Canon")
 canon.record()
+print(canon.__dict__)
+print(vars(canon))
