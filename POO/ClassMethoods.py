@@ -1,9 +1,21 @@
 class Person:
     year = 2024
-
+    name:str
     def __init__(self,name,age):
         self.name = name
         self.age = age
+        self._propriedade = 'private'
+    
+    #atributos que começam com um ou dois underlines
+    #não deve ser usado fora da classe
+
+    def getName(self):
+        return self.name
+    
+    @property
+    def propriedade(self):
+        return self._propriedade
+    
     
     def saiHy(self):
         print(f'{self.name} is saing Hy!')
@@ -15,7 +27,7 @@ class Person:
     @classmethod
     def createWithAgeEqual(cls,name):
         return cls(name,20)
-
+    
 Person.method()
 p1 = Person.createWithAgeEqual('Person20Old')
 print(vars(p1))
