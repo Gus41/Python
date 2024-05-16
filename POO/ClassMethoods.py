@@ -16,6 +16,12 @@ class Person:
     def propriedade(self):
         return self._propriedade
     
+    @propriedade.setter
+    def propriedade(self,prop):
+        if prop == 'value':
+            raise ValueError("Error")
+        self._propriedade = prop
+
     
     def saiHy(self):
         print(f'{self.name} is saing Hy!')
@@ -30,6 +36,7 @@ class Person:
     
 Person.method()
 p1 = Person.createWithAgeEqual('Person20Old')
+p1.propriedade = 'value'
 print(vars(p1))
 
 
