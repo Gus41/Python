@@ -1,4 +1,10 @@
 #Abstração
+from pathlib import Path
+
+LOG_FILE = Path(__file__).parent / 'log.txt'
+# Pasta do projeto + O local do arquivo
+
+
 class Log:
     def _log(self,msg):
         raise NotImplemented("Implemente o metodo Log")
@@ -12,9 +18,12 @@ class Log:
 
 class LogFileMixin(Log):
     def _log(self, msg):
-        print(msg)
+        with open(LOG_FILE, 'w') as arq:
+            arq.write(msg)
+            arq.write("\n")
 
  
 if __name__ == '__main__':
     l = LogFileMixin()
-    l.LogError("Testing")
+    l.logSucces("Testing")
+    print(LOG_FILE)
