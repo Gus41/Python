@@ -18,9 +18,10 @@ class Log:
 
 class LogFileMixin(Log):
     def _log(self, msg):
-        with open(LOG_FILE, 'w') as arq:
+        with open(LOG_FILE, 'a') as arq:
             arq.write(msg)
             arq.write("\n")
+        print("msg foi salvo no log.txt")
 
  
 if __name__ == '__main__':

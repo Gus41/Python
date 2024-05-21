@@ -1,1 +1,5 @@
 Succes: Testing
+Succes: Testing
+Succes: Succes
+Succes: Iphone foi ligado
+Error : Iphone foi desligado
