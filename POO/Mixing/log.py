@@ -7,6 +7,9 @@ LOG_FILE = Path(__file__).parent / 'log.txt'
 # Pasta do projeto + O local do arquivo
 
 
+
+
+
 class Log(ABC):
     
     @abstractmethod
