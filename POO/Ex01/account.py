@@ -30,7 +30,7 @@ class PoupancaAccount(Account):
         self.details(f"Saque efetuado: -{value}")
 
 class CourrentAccount(Account):
-    def __init__(self, agencia, conta, saldo,limite) -> None:
+    def __init__(self, agencia, conta, saldo,limite=0) -> None:
         super().__init__(agencia, conta, saldo)
         self._limite = limite
 
@@ -44,10 +44,3 @@ class CourrentAccount(Account):
         self._saldo -= value
         self.details(f"Saque efetuado: -{value}")
     
-if __name__ == '__main__':
-    accP = PoupancaAccount("111",222,0)
-    accP.depositar(1)
-    accP.sacar(1)
-    print("------------")
-    accC = CourrentAccount('122',111,0,100)
-    accC.sacar(10)
