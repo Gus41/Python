@@ -1,13 +1,22 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import date
+import customtkinter
+
 
 def init():
 
-    def showEvents(events:list):
+    def appendEvents(events:list):
         for e in events:
-            print("----")
-            print(e)
+            if e[0] != None and e[1] != None:
+                d = customtkinter.CTkLabel(frame,text=e[0])
+                t = customtkinter.CTkLabel(frame,text=e[1])
+                separator = customtkinter.CTkLabel(frame,text='------')
+
+                t.pack(padx=40,pady=10)
+                d.pack(padx=40,pady=10)
+                separator.pack(padx=40,pady=30)
+        
 
     
     url = 'https://www.ucs.br/site/eventos/'
@@ -25,22 +34,35 @@ def init():
                 eventLink = 'https://www.ucs.br/' + link
                 pageEvent = requests.get(url=eventLink,headers=header)
                 eventContent = BeautifulSoup(pageEvent.content,'html.parser')
-                eventHeader = eventContent.find("header",{'class': 'bg-ft'})
                 eventDate = eventContent.find('h3')
                 eventTittle = eventContent.find('h4')
                 eventDate = eventDate.text
                 if eventTittle != None:
                     eventTittle = eventTittle.text
                     
-                event = {eventTittle, eventDate}
+                event = [eventTittle, eventDate]
                 events.append(event)
         
         return events
     
     
     allEvents = searchEvents()
-    showEvents(allEvents)
     atualDay = date.today().day
     atualMonth = date.today().month
-    print(f'{atualDay} de {atualMonth}')
-init()
+    appendEvents(allEvents)
+
+
+window = customtkinter.CTk()
+window.geometry("900x500")
+
+tittle = customtkinter.CTkLabel(window,text="Eventos")
+tittle.pack(padx=10,pady=10)
+button = customtkinter.CTkButton(window,text="Procurar eventos", command=init)
+button.pack(padx=10,pady=10)
+frame = customtkinter.CTkScrollableFrame(window,width=800,height=350)
+
+frame.pack()
+
+window.mainloop()
+
+
