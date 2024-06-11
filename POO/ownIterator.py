@@ -25,7 +25,8 @@ class MyList(Sequence):
     
     def __next__(self):
         val = self._data[self._next_index]
-        self._
+        self._next_index += 1
+        return val
 
 
 
