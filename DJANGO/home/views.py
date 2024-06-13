@@ -6,4 +6,5 @@ from django.shortcuts import render
 # Create your views here.
 def home(request):
     print("home")
-    return render(request,'home.html')
+    context = { 'text' : 'Texto passado por parametro'}
+    return render(request,'home.html',context)

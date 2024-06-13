@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from . import views
 from django.urls import path
 
+app_name = 'home'
 
 urlpatterns = [ 
-    path('',views.home)
+    path('',views.home,name='home')
 ]
