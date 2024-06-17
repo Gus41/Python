@@ -1,4 +1,10 @@
 {% extends "global/base.html" %}
 
-{%block tittle%} {{text}} {%endblock tittle%}
+{%block tittle%} {{tittle}} {%endblock tittle%}
+
+{% block posts %}
+    {% for p in posts %}
+        {% include 'global/partials/postblock.html' %}
+    {% endfor %}
+{% endblock posts %}
 

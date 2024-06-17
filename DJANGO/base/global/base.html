@@ -1,6 +1,13 @@
 {% include "global/partials/head.html" %}
 {% include "global/partials/nav.html" %}
 
+    {% if tittle %}
     <h1>{% block tittle %}Base{% endblock tittle %}</h1>
+    {% endif %}
+
+    <main class="posts">
+    {% block posts %} {% endblock posts %}
+    </main>
+
 </body>
 </html>
