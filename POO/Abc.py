@@ -10,7 +10,7 @@ class Notification(ABC):
     def send(self) -> bool:...
 
 class Sms(Notification):
-    def send(self) -> True: 
+    def send(self) -> True:  # type: ignore
         print(self._mensagem)
         return True
 

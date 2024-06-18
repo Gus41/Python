@@ -26,7 +26,7 @@ def init():
 
     def searchEvents():
         box = soup.find('div',{'class': 'box_cinza_claro'})
-        links = box.find_all('a')
+        links = box.find_all('a') # type: ignore
         events = []
         for e in links:
             link = e['href']
@@ -36,7 +36,7 @@ def init():
                 eventContent = BeautifulSoup(pageEvent.content,'html.parser')
                 eventDate = eventContent.find('h3')
                 eventTittle = eventContent.find('h4')
-                eventDate = eventDate.text
+                eventDate = eventDate.text # type: ignore
                 if eventTittle != None:
                     eventTittle = eventTittle.text
                     
