@@ -7,5 +7,5 @@ app_name = 'home'
 
 urlpatterns = [ 
     path('',views.home,name='home'),
-    path('post/<int:id>',views.post, name="post")
+    path('<int:post_id>/',views.post, name="post")
 ]

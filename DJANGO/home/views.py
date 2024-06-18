@@ -13,9 +13,16 @@ def home(request):
                 'posts' : data.posts}
     return render(request,'home.html',context)
 
-def post(request,id):
-    context = {'tittle' : "Post"}
-    print(id)
+def getPostById(post_id:int):
+    for d in data.posts:
+        if d['id'] == post_id: 
+         return d
+
+def post(request,post_id):
+    post = getPostById(post_id)
+    context = {'tittle' : "Post", 'posts' : [post]}
+    print(post_id)
+    print(context)
     return render(request, 'post.html', context )
 
 

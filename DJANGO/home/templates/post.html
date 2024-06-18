@@ -2,4 +2,9 @@
 
 {%block tittle%} {{tittle}} {%endblock tittle%}
 
+{% block posts %}
+    {% for p in posts %}
+        {% include 'global/partials/postblock.html' %}
+    {% endfor %}
+{% endblock posts %}
 
